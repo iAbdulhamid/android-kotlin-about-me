@@ -2,4 +2,20 @@
     <string name="app_name">AboutMe</string>
     <string name="name">Ibrahim Abdelhamed</string>
     <string name="yellow_star">Yellow Star</string>
+    <string name="bio">this is the first line \n this is the second line \n
+                        this is the third line \n this is the fourth line \n
+                        this is the fifth line \n this is the sixth line
+        this is the first line \n this is the second line \n
+                        this is the third line \n this is the fourth line \n
+                        this is the fifth line \n this is the sixth line
+        this is the first line \n this is the second line \n
+                        this is the third line \n this is the fourth line \n
+                        this is the fifth line \n this is the sixth line
+        this is the first line \n this is the second line \n
+                        this is the third line \n this is the fourth line \n
+                        this is the fifth line \n this is the sixth line
+        this is the first line \n this is the second line \n
+                        this is the third line \n this is the fourth line \n
+                        this is the fifth line \n this is the sixth line
+    </string>
 </resources>
