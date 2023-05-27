@@ -8,32 +8,30 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.databinding.DataBindingUtil
+import com.example.aboutme.databinding.ActivityMainBinding
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var nicknameEdit: EditText
-    private lateinit var nicknameText: TextView
-    private lateinit var doneButton: Button
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
 
-        nicknameEdit = findViewById(R.id.edit_nickname)
-        nicknameText = findViewById(R.id.txt_nickname)
-        doneButton = findViewById(R.id.btn_done)
-
-        doneButton.setOnClickListener {
+        binding.btnDone.setOnClickListener {
             addNickname()
         }
-
     }
 
     private fun addNickname() {
-        nicknameText.text = nicknameEdit.text
-        nicknameEdit.visibility = View.GONE
-        doneButton.visibility = View.GONE
-        nicknameText.visibility = View.VISIBLE
+        binding.apply {
+            txtNickname.text = editNickname.text
+            editNickname.visibility = View.GONE
+            btnDone.visibility = View.GONE
+            txtNickname.visibility = View.VISIBLE
+        }
 
         // Hide the keyboard.
         val view = this.currentFocus
