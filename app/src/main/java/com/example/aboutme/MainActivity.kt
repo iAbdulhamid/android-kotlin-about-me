@@ -1,33 +1,45 @@
 package com.example.aboutme
 
+import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.aboutme.ui.theme.AboutMeTheme
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var nicknameText : EditText
-    private lateinit var doneButton : Button
+    private lateinit var nicknameEdit: EditText
+    private lateinit var nicknameText: TextView
+    private lateinit var doneButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //doneButton.setOnClickListener {
-        //    nicknameText = findViewById<EditText?>(R.id.edit_nickname)
-        //    Toast.makeText(this, "${nicknameText.text}", Toast.LENGTH_SHORT).show()
-        //}
+        nicknameEdit = findViewById(R.id.edit_nickname)
+        nicknameText = findViewById(R.id.txt_nickname)
+        doneButton = findViewById(R.id.btn_done)
 
+        doneButton.setOnClickListener {
+            addNickname()
+        }
+
+    }
+
+    private fun addNickname() {
+        nicknameText.text = nicknameEdit.text
+        nicknameEdit.visibility = View.GONE
+        doneButton.visibility = View.GONE
+        nicknameText.visibility = View.VISIBLE
+
+        // Hide the keyboard.
+        val view = this.currentFocus
+        //if (view != null) {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view?.windowToken, 0)
+        //}
     }
 }
