@@ -19,4 +19,5 @@
                         this is the fifth line \n this is the sixth line
     </string>
     <string name="nickname_hint">What\'s your nickname?</string>
+    <string name="btn_done">Done</string>
 </resources>
