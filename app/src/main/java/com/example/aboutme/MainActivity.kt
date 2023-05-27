@@ -7,6 +7,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.databinding.DataBindingUtil
 import com.example.aboutme.databinding.ActivityMainBinding
@@ -14,12 +15,14 @@ import com.example.aboutme.databinding.ActivityMainBinding
 class MainActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val myName = MyName("Ibrahim Abdelhamed")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //setContentView(R.layout.activity_main)
 
+        binding.myName = myName
         binding.btnDone.setOnClickListener {
             addNickname()
         }
@@ -27,7 +30,8 @@ class MainActivity : ComponentActivity() {
 
     private fun addNickname() {
         binding.apply {
-            txtNickname.text = editNickname.text
+            myName?.nickname = editNickname.text.toString()
+            invalidateAll()
             editNickname.visibility = View.GONE
             btnDone.visibility = View.GONE
             txtNickname.visibility = View.VISIBLE
