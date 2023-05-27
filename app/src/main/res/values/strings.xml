@@ -18,4 +18,5 @@
                         this is the third line \n this is the fourth line \n
                         this is the fifth line \n this is the sixth line
     </string>
+    <string name="nickname_hint">What\'s your nickname?</string>
 </resources>
